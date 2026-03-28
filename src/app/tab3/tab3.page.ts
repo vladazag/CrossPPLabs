@@ -16,7 +16,13 @@ export class Tab3Page {
   matrix: number[][] = [];
   rowSums: number[] = [];
 
+  matrixError: boolean = false;
+
   calcMatrix() {
+    if (this.n == null) {
+      this.matrixError = true;
+      return;
+    }
     const calculator = new CalcMatrix(this.n);
     this.matrix = calculator.getMatrix();
     this.rowSums = calculator.getRowSums();

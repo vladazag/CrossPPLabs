@@ -22,7 +22,12 @@ export class Tab1Page {
   constructor() {}
 
   calcNumber() {
+    if (this.a == null || this.b == null || this.c == null) {
+      this.count = -1; 
+      return;
+    }
     const calculator = new CalcNumber(this.a, this.b, this.c);
     this.count = calculator.getCount();
+    console.log(this.a, this.b, this.c);
   }
 }

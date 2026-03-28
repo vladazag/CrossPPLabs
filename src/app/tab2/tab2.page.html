@@ -19,6 +19,11 @@
       <ion-item>
         <ion-button (click)="calcRange()">Знайти</ion-button>
       </ion-item>
+
+      @if (rangeError) {
+      <p>Уведіть всі значення</p>
+      }
+
       <ion-item>
         <p>Числа: {{ rangeNumbers.length ? rangeNumbers.join(', ') : 'не знайдено' }}</p>
       </ion-item>

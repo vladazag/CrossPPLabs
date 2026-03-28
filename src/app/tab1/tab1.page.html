@@ -22,7 +22,7 @@
         <ion-button (click)="calcNumber()">Знайти</ion-button>
       </ion-item>
       <ion-item>
-        <p>Результат: {{count}}</p>
+        <p>{{ count === -1 ? 'Уведіть всі значення' : 'Результат: ' + count }}</p>
       </ion-item>
     </ion-card-content>
   </ion-card>

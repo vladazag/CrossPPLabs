@@ -19,9 +19,14 @@ export class Tab2Page {
   rangeNumbers: number[] = [];
   rangeSum: number = 0;
 
-  constructor() {}
+  rangeError: boolean = false;
 
   calcRange() {
+    if (this.rangeA == null || this.rangeB == null) {
+      this.rangeError = true;
+      return;
+    }
+    this.rangeError = false;
     const calculator = new CalcRange(this.rangeA, this.rangeB);
     this.rangeNumbers = calculator.getNumbers();
     this.rangeSum = calculator.getSum();

@@ -17,6 +17,10 @@
         <ion-button (click)="calcMatrix()">Згенерувати і знайти</ion-button>
       </ion-item>
 
+      @if (matrixError) {
+      <p>Уведіть всі значення</p>
+      }
+
       @if (matrix.length) {
       <ion-grid>
         @for (row of matrix; track row; let i = $index) {
