@@ -1,11 +1,30 @@
 <app-my-header name="Лабораторна робота №1"> </app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання №2</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        На заданому проміжку чисел [a,b] знайти суму всіх, які кратні 17 та при діленні на 4 дають в остачі 2. Потрібно
+        вивести як самі числа, так і результати обрахунку.
+      </ion-item>
+      <ion-item>
+        <ion-input label="a" labelPlacement="fixed" type="number" [(ngModel)]="rangeA"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="b" labelPlacement="fixed" type="number" [(ngModel)]="rangeB"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="calcRange()">Знайти</ion-button>
+      </ion-item>
+      <ion-item>
+        <p>Числа: {{ rangeNumbers.length ? rangeNumbers.join(', ') : 'не знайдено' }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Сума: {{ rangeSum }}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
