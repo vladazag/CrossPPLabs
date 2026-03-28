@@ -1,17 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-my-header name="Лабораторна робота №1"> </app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання №1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        Задано три числа. Знайти кількість тих з них, які кратні 27.
+      </ion-item>
+      <ion-item>
+        <ion-input label="Перше число" labelPlacement="fixed" type="number" [(ngModel)]="a"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Друге число" labelPlacement="fixed" type="number" [(ngModel)]="b"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Третє число" labelPlacement="fixed" type="number" [(ngModel)]="c"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="calcNumber()">Знайти</ion-button>
+      </ion-item>
+      <ion-item>
+        <p>Результат: {{count}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
