@@ -1,11 +1,39 @@
 <app-my-header name="Лабораторна робота №1"> </app-my-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання №3</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        Згенерувати матрицю розміром NxN. Знайти суму кожного рядка матриці. Виокремити рядки за допомогою кольору.
+      </ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-item>
+        <ion-input label="N" labelPlacement="fixed" type="number" [(ngModel)]="n"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="calcMatrix()">Згенерувати і знайти</ion-button>
+      </ion-item>
+
+      @if (matrix.length) {
+      <ion-grid>
+        @for (row of matrix; track row; let i = $index) {
+        <ion-row [style.background-color]="i % 2 === 0 ? 'pink' : 'lightblue'">
+          @for (cell of row; track cell) {
+          <ion-col>{{ cell }}</ion-col>
+          }
+        </ion-row>
+        }
+      </ion-grid>
+
+      @for (sum of rowSums; track sum; let i = $index) {
+      <ion-item>
+        <p>Сума {{ i + 1 }} рядка: {{ sum }}</p>
+      </ion-item>
+      }
+      }
+    </ion-card-content>
+  </ion-card>
 </ion-content>
