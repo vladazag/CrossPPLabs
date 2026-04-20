@@ -1,0 +1,40 @@
+<app-my-header name="Лабораторна робота №2"></app-my-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Перелік факультетів різних університетів</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        @for (group of faculties.group() | keyvalue; track group.key) {
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title> {{ group.key }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            @for (faculty of group.value; track faculty.nameFaculty) {
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{ faculty.nameFaculty }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label>ПІБ декана: {{ faculty.decanFullName }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Номер телефону: {{ faculty.phoneNumber }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Адреса: {{ faculty.adress }}</ion-label>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            }
+          </ion-card-content>
+        </ion-card>
+        }
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <canvas #lineCanvas></canvas>
+</ion-content>

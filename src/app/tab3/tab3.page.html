@@ -28,15 +28,10 @@
           @for (cell of row; track cell) {
           <ion-col>{{ cell }}</ion-col>
           }
+          <ion-col><strong>{{ rowSums[i] }}</strong></ion-col>
         </ion-row>
         }
       </ion-grid>
-
-      @for (sum of rowSums; track sum; let i = $index) {
-      <ion-item>
-        <p>Сума {{ i + 1 }} рядка: {{ sum }}</p>
-      </ion-item>
-      }
       }
     </ion-card-content>
   </ion-card>
