@@ -9,7 +9,7 @@
         @for (group of faculties.group() | keyvalue; track group.key) {
         <ion-card>
           <ion-card-header>
-            <ion-card-title> {{ group.key }}</ion-card-title>
+            <ion-card-title> {{ group.key }}, {{ group.value.length }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             @for (faculty of group.value; track faculty.nameFaculty) {

@@ -1,0 +1,49 @@
+<app-my-header name="Лабораторна робота №5"></app-my-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <h1>Завдання</h1>
+      <p>Провести табулювання, обрахувати за допомогою циклу та рекурсії наступну функцію:</p>
+      <ion-img src="../../assets/img/function.jpg"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input label="Xn" type="number" #InputXn value="-1"></ion-input>
+        @if (errorXn) {
+        <p style="color: red">{{ errorXn }}</p>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-input label="Xk" type="number" #InputXk value="1"></ion-input>
+        @if (errorXk) {
+        <p style="color: red">{{ errorXk }}</p>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-input label="h" type="number" #InputH value="0.1"></ion-input>
+        @if (errorH) {
+        <p style="color: red">{{ errorH }}</p>
+        }
+      </ion-item>
+      <ion-button (click)="ras(InputXn.value, InputXk.value, InputH.value)">Розрахунок</ion-button>
+      <ion-card>
+        <ion-card-title>
+          <h1>Результати розрахунку</h1>
+        </ion-card-title>
+        <ion-card-content>
+          <ion-list>
+            @for (item of yyyOutput; track $index; let i = $index) {
+            <ion-item>
+              <ion-label>
+                <h5>{{xx[i]}}</h5>
+                <h5>{{item}}</h5>
+              </ion-label>
+            </ion-item>
+            }
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <canvas #lineCanvas></canvas>
+</ion-content>
