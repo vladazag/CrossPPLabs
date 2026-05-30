@@ -20,7 +20,8 @@ export class SeriesService {
     let x = xn, y = 0.0;
     while (x < xk) {
       y = this.getSeries(x);
-      this.xy.set(x.toFixed(2), y);
+      const xString = x.toFixed(2);
+      this.xy.set(xString === '-0.00' ? '0.00' : xString, y);
       if (this.logService)
         this.logService.write('x = ' + x.toFixed(2) + ', y = ' + y.toFixed(4));
       x = x + h;

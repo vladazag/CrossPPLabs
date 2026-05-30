@@ -16,7 +16,7 @@ describe('SeriesService', () => {
 
   it('Сума ряду значення x = 0, y = 1', () => {
     const xy = service.getTab();
-    const y = xy.get('-0.00');
+    const y = xy.get('0.00');
     expect(y).toBeCloseTo(1.000);
   });
 });

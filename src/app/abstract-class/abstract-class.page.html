@@ -25,7 +25,8 @@
     </ion-card-header>
     <ion-card-content>
       @for (v of vehicles; track v) {
-      <ion-item>
+      <ion-item
+        [style.border]="v.maxSpeed === getMinSpeed() ? '5px solid red' : v.maxSpeed === getMaxSpeed() ? '5px solid green' : 'none'">
         <p>{{ v.displayInfo() }}</p>
       </ion-item>
       }

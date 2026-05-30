@@ -21,7 +21,8 @@ export class RecursionService {
     let x = xn, y = 1.0;
     while (x <= xk) {
       this.getRecursion(x, 1, 1, y);
-      this.xy.set(x.toFixed(2), this.yy);
+      const xString = x.toFixed(2);
+      this.xy.set(xString === '-0.00' ? '0.00' : xString, this.yy);
       if (this.logService)
         this.logService.write('x = ' + x.toFixed(2) + ', y = ' + this.yy.toFixed(4));
       x = x + h;

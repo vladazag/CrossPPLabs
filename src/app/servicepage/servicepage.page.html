@@ -43,6 +43,19 @@
           </ion-list>
         </ion-card-content>
       </ion-card>
+      @if (globalOptimum) {
+      <ion-card>
+        <ion-card-title>Глобальний оптимум</ion-card-title>
+        <ion-card-content>
+          <ion-item>
+            <ion-label>Мінімум: x = {{ globalOptimum.xMin }}, y = {{ globalOptimum.yMin.toFixed(4) }}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Максимум: x = {{ globalOptimum.xMax }}, y = {{ globalOptimum.yMax.toFixed(4) }}</ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      }
     </ion-card-content>
   </ion-card>
   <canvas #lineCanvas></canvas>

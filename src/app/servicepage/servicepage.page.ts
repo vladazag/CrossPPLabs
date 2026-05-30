@@ -23,6 +23,9 @@ export class ServicepagePage implements OnInit {
   errorXn: string = '';
   errorXk: string = '';
   errorH: string = '';
+
+  globalOptimum: { xMin: string, yMin: number, xMax: string, yMax: number } | null = null;
+
   constructor(private tabService: TabService, private seriesService: SeriesService, private recursionService: RecursionService) { 
     Chart.register(...registerables);
   }
@@ -129,8 +132,8 @@ export class ServicepagePage implements OnInit {
       console.log('Рекурсія');
       this.xyRecursion = this.recursionService.getTab(xn1, xk1, h1);
 
+      this.globalOptimum = this.tabService.getGlobalOptimum(this.xx, this.yyTabNum);
       this.output();
-
       this.lineChartMake();
     } catch {}
   }

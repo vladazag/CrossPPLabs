@@ -1,0 +1,13 @@
+@for (product of products; track product) {
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ product.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>{{ product.displayInfo() }}</ion-label>
+    </ion-item>
+    <ion-button (click)="buy(product)">Купити</ion-button>
+  </ion-card-content>
+</ion-card>
+}

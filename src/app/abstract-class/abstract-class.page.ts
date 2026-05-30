@@ -44,4 +44,12 @@ export class AbstractClassPage implements OnInit {
   findByRange() {
     this.filteredVehicles = this.vehicles.filter(v => v.getRange() > this.r);
   }
+
+  getMinSpeed(): number {
+    return Math.min(...this.vehicles.map(v => v.maxSpeed));
+  }
+
+  getMaxSpeed(): number {
+    return Math.max(...this.vehicles.map(v => v.maxSpeed));
+  }
 }

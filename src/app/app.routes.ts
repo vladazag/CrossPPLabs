@@ -16,4 +16,8 @@ export const routes: Routes = [
     path: 'servicepage',
     loadComponent: () => import('./servicepage/servicepage.page').then( m => m.ServicepagePage)
   },
+  {
+    path: 'solid',
+    loadComponent: () => import('./solid/solid.page').then( m => m.SolidPage)
+  },
 ];

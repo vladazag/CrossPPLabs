@@ -24,4 +24,21 @@ export class TabService {
     }
     return { x: this.xx, y: this.yy };
   }
+
+  getGlobalOptimum(xx: string[], yy: number[]): { xMin: string, yMin: number, xMax: string, yMax: number } {
+    let minIndex = 0;
+    let maxIndex = 0;
+
+    for (let i = 1; i < yy.length; i++) {
+      if (yy[i] < yy[minIndex]) minIndex = i;
+      if (yy[i] > yy[maxIndex]) maxIndex = i;
+    }
+
+    return {
+      xMin: xx[minIndex],
+      yMin: yy[minIndex],
+      xMax: xx[maxIndex],
+      yMax: yy[maxIndex]
+    };
+  }
 }
