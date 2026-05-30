@@ -9,8 +9,7 @@ describe('ProductListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductListComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [ProductListComponent, IonicModule.forRoot()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductListComponent);

@@ -16,7 +16,7 @@ export class PerishableProduct extends Product implements IExpirable {
     }
 
     override displayInfo(): string {
-        const status = this.isExpired() ? '❌ Прострочено' : '✅ Придатний';
+        const status = this.isExpired() ? 'Прострочено' : 'Придатний';
         return `${super.displayInfo()}, термін придатності: ${this.expiryDate} ${status}`;
     }
 }
