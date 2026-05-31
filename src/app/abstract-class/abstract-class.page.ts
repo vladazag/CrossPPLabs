@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonButton } from '@ionic/angular/standalone';
-import { MyHeaderComponent } from '../my-header/my-header.component';
+import { MyHeaderComponent } from '../components/my-header/my-header.component';
 import { Vehicle } from "../class/Abstract/Vehicle";
 import { VehicleFactory } from "./../class/Abstract/VehicleFactory";
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonCardHeader, IonCard, IonInput, IonItem, IonButton, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-import { MyHeaderComponent } from '../my-header/my-header.component';
+import { MyHeaderComponent } from '../components/my-header/my-header.component';
 import { FormsModule } from '@angular/forms'; 
 import { CalcRange } from './class/calcRange'; 
 

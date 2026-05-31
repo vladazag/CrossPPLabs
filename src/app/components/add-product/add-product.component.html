@@ -1,0 +1,56 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Додати продукт</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-select label="Категорія" [(ngModel)]="selectedCategory" (ionChange)="onCategoryChange(selectedCategory)">
+        @for (cat of categories; track cat) {
+        <ion-select-option [value]="cat">{{ cat }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-input label="Назва" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Ціна" type="number" formControlName="price"></ion-input>
+      </ion-item>
+
+      @if (selectedCategory === 'Молочні продукти') {
+      <ion-item>
+        <ion-input label="Жирність (%)" type="number" formControlName="fatContent"></ion-input>
+      </ion-item>
+      }
+
+      @if (selectedCategory === 'Овочі') {
+      <ion-item>
+        <ion-input label="Походження" formControlName="origin"></ion-input>
+      </ion-item>
+      }
+
+      @if (selectedCategory === 'Напої') {
+      <ion-item>
+        <ion-input label="Об'єм (л)" type="number" formControlName="volume"></ion-input>
+      </ion-item>
+      }
+
+      @if (selectedCategory === 'З терміном придатності') {
+      <ion-item>
+        <ion-input label="Термін придатності (рррр-мм-дд)" formControlName="expiryDate"></ion-input>
+      </ion-item>
+      @if (form.get('expiryDate')?.errors?.['invalidDate']) {
+      <p style="color:red">Невалідний формат дати</p>
+      }
+      @if (form.get('expiryDate')?.errors?.['pastDate']) {
+      <p style="color:red">Дата має бути в майбутньому</p>
+      }
+      }
+
+      <ion-button (click)="submit()" [disabled]="form.invalid">Додати</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

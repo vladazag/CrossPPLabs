@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { FormsModule } from '@angular/forms'; 
-import { MyHeaderComponent } from '../my-header/my-header.component';
+import { MyHeaderComponent } from '../components/my-header/my-header.component';
 import { CalcNumber } from './class/calcNumb';
 
 @Component({

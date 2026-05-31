@@ -1,0 +1,39 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Редагувати: {{ product().name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-input label="Назва" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ціна" type="number" formControlName="price"></ion-input>
+      </ion-item>
+
+      @if (product().category === 'Молочні продукти') {
+      <ion-item>
+        <ion-input label="Жирність (%)" type="number" formControlName="fatContent"></ion-input>
+      </ion-item>
+      }
+      @if (product().category === 'Овочі') {
+      <ion-item>
+        <ion-input label="Походження" formControlName="origin"></ion-input>
+      </ion-item>
+      }
+      @if (product().category === 'Напої') {
+      <ion-item>
+        <ion-input label="Об'єм (л)" type="number" formControlName="volume"></ion-input>
+      </ion-item>
+      }
+      @if (product().category === 'З терміном придатності') {
+      <ion-item>
+        <ion-input label="Термін придатності" formControlName="expiryDate"></ion-input>
+      </ion-item>
+      }
+
+      <ion-button (click)="submit()" [disabled]="form.invalid">Зберегти</ion-button>
+      <ion-button fill="outline" (click)="cancel()">Скасувати</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

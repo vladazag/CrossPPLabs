@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonImg, IonCardContent, IonItem, IonInput, IonButton, IonCardTitle, IonList, IonLabel } from '@ionic/angular/standalone';
-import { MyHeaderComponent } from "../my-header/my-header.component";
+import { MyHeaderComponent } from "../components/my-header/my-header.component";
 import { Chart, registerables } from 'chart.js';
 
 @Component({

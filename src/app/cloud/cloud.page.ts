@@ -6,7 +6,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, Io
 import { Chart, registerables } from 'chart.js';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Faculty } from '../class/Faculty/faculty';
-import { MyHeaderComponent } from "../my-header/my-header.component";
+import { MyHeaderComponent } from "../components/my-header/my-header.component";
 
 @Component({
   selector: 'app-cloud',
