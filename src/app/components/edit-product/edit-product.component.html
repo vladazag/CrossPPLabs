@@ -31,6 +31,11 @@
         <ion-input label="Термін придатності" formControlName="expiryDate"></ion-input>
       </ion-item>
       }
+      @if (product().category === 'Консерви') {
+      <ion-item>
+        <ion-input label="Пакування" formControlName="packaging"></ion-input>
+      </ion-item>
+      }
 
       <ion-button (click)="submit()" [disabled]="form.invalid">Зберегти</ion-button>
       <ion-button fill="outline" (click)="cancel()">Скасувати</ion-button>

@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 export class AddProductComponent {
   onAdd = output<Product>();
 
-  categories = ['Молочні продукти', 'Овочі', 'Напої', 'З терміном придатності'];
+  categories = ['Молочні продукти', 'Овочі', 'Напої', 'З терміном придатності', 'Консерви', 'Органічні продукти'];
   selectedCategory = 'Молочні продукти';
   form: FormGroup = ProductFormFactory.createForm(this.selectedCategory);
 

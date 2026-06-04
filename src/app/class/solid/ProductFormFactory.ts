@@ -36,6 +36,20 @@ export class ProductFormFactory {
             });
         }
 
+        if (category === 'Консерви') {
+            return new FormGroup({
+                ...base,
+                packaging: new FormControl('', Validators.required)
+            });
+        }
+
+        if (category === 'Органічні продукти') {
+            return new FormGroup({
+                ...base,
+                certificate: new FormControl('', Validators.required)
+            });
+        }
+        
         return new FormGroup(base);
     }
 }

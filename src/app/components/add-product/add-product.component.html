@@ -49,7 +49,16 @@
       <p style="color:red">Дата має бути в майбутньому</p>
       }
       }
-
+      @if (selectedCategory === 'Консерви') {
+      <ion-item>
+        <ion-input label="Пакування" formControlName="packaging"></ion-input>
+      </ion-item>
+      }
+      @if (selectedCategory === 'Органічні продукти') {
+      <ion-item>
+        <ion-input label="Сертифікат" formControlName="certificate"></ion-input>
+      </ion-item>
+      }
       <ion-button (click)="submit()" [disabled]="form.invalid">Додати</ion-button>
     </form>
   </ion-card-content>

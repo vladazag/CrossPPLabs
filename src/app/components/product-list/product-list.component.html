@@ -14,7 +14,52 @@
 
 <app-add-product (onAdd)="addProduct($event)"></app-add-product>
 
-@for (product of productService.products(); track product; let i = $index) {
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Фільтри</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <p><strong>Категорії:</strong></p>
+    @for (cat of allCategories; track cat) {
+    <ion-item>
+      <ion-checkbox [checked]="selectedCategories.includes(cat)"
+        (ionChange)="onCategoryToggle(cat, $any($event).detail.checked)" labelPlacement="end">{{ cat }}</ion-checkbox>
+    </ion-item>
+    }
+
+    <p><strong>Ціна:</strong></p>
+    <ion-item>
+      <ion-input label="Від" type="number" [value]="minPriceInput"
+        (ionInput)="onMinPriceChange($any($event).detail.value)" placeholder="0"></ion-input>
+    </ion-item>
+    @if (minPriceError) {
+    <p style="color:red">{{ minPriceError }}</p>
+    }
+
+    <ion-item>
+      <ion-input label="До" type="number" [value]="maxPriceInput"
+        (ionInput)="onMaxPriceChange($any($event).detail.value)" placeholder="без обмеження"></ion-input>
+    </ion-item>
+    @if (maxPriceError) {
+    <p style="color:red">{{ maxPriceError }}</p>
+    }
+    @if (priceRangeError) {
+    <p style="color:red">{{ priceRangeError }}</p>
+    }
+
+  </ion-card-content>
+</ion-card>
+
+@if (noResultsMessage) {
+<ion-card>
+  <ion-card-content>
+    <p>{{ noResultsMessage }}</p>
+  </ion-card-content>
+</ion-card>
+}
+
+@for (product of filteredProducts(); track product; let i = $index) {
 @if (editingIndex === i) {
 <app-edit-product [product]="product" [index]="i" (onSave)="saveEdit($event)" (onCancel)="cancelEdit()">
 </app-edit-product>
