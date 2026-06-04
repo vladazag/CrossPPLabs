@@ -1,23 +1,38 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListComponent } from './product-list.component';
+import { ProductService } from '../../service/product/product.service';
+import { signal } from '@angular/core';
+import { BehaviorSubject, of } from 'rxjs';
 
 describe('ProductListComponent', () => {
-  let component: ProductListComponent;
-  let fixture: ComponentFixture<ProductListComponent>;
+    let component: ProductListComponent;
+    let fixture: ComponentFixture<ProductListComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [ProductListComponent, IonicModule.forRoot()]
-    }).compileComponents();
+    beforeEach(async () => {
+        const productServiceMock = {
+            products: signal([]),
+            filteredProducts$: of([]),
+            load: () => Promise.resolve(),
+            addProduct: () => {},
+            updateProduct: () => {},
+            deleteProduct: () => {},
+            setCategories: () => {},
+            setPriceRange: () => {}
+        };
 
-    fixture = TestBed.createComponent(ProductListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+        await TestBed.configureTestingModule({
+            imports: [ProductListComponent],
+            providers: [
+                { provide: ProductService, useValue: productServiceMock }
+            ]
+        }).compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        fixture = TestBed.createComponent(ProductListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
