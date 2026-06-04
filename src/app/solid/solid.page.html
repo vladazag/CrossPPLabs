@@ -1,4 +1,8 @@
-<app-my-header name="Лабораторна робота №6-8"></app-my-header>
+<app-my-header name="Лабораторна робота №6-9"></app-my-header>
 <ion-content [fullscreen]="true">
+  <app-auth></app-auth>
+  @if (authService.isLoggedIn()) {
+  <app-category-manager></app-category-manager>
   <app-product-list></app-product-list>
+  }
 </ion-content>

@@ -7,22 +7,31 @@ import { CannedProduct } from './CannedProduct';
 import { OrganicProduct } from './OrganicProduct';
 
 export class ProductFactory {
-    public static getProduct(data: any): Product {
+    public static getProduct(data: any, id: string = ''): Product {
+        let product: Product;
         switch (data.category) {
             case 'Молочні продукти':
-                return new DairyProduct(data.name, data.price, data.fatContent);
+                product = new DairyProduct(data.name, data.price, data.fatContent);
+                break;
             case 'Овочі':
-                return new Vegetable(data.name, data.price, data.origin);
+                product = new Vegetable(data.name, data.price, data.origin);
+                break;
             case 'Напої':
-                return new Beverage(data.name, data.price, data.volume);
+                product = new Beverage(data.name, data.price, data.volume);
+                break;
             case 'З терміном придатності':
-                return new PerishableProduct(data.name, data.price, data.category, data.expiryDate);
+                product = new PerishableProduct(data.name, data.price, data.category, data.expiryDate);
+                break;
             case 'Консерви':
-            return new CannedProduct(data.name, data.price, data.packaging);
+                product = new CannedProduct(data.name, data.price, data.packaging);
+                break;
             case 'Органічні продукти':
-                return new OrganicProduct(data.name, data.price, data.certificate);
+                product = new OrganicProduct(data.name, data.price, data.certificate);
+                break;
             default:
                 throw new Error('Невідома категорія: ' + data.category);
         }
+        product.id = id;
+        return product;
     }
 }

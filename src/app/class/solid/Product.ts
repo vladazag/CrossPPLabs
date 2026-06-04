@@ -2,6 +2,7 @@ import { IProduct } from './IProduct';
 import { IDisplayable } from './IDisplayable';
 
 export abstract class Product implements IProduct, IDisplayable {
+    public id: string = '';
     constructor(
         public name: string,
         public price: number,

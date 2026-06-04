@@ -1,10 +1,11 @@
-import { Component, output } from '@angular/core';
+import { Component, output, inject } from '@angular/core';
 import { ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonButton, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { ProductFormFactory } from '../../class/solid/ProductFormFactory';
 import { ProductFactory } from '../../class/solid/ProductFactory';
 import { Product } from '../../class/solid/Product';
 import { FormsModule } from '@angular/forms';
+import { CategoryService } from '../../service/category/category.service';
 
 @Component({
   selector: 'app-add-product',
@@ -16,7 +17,11 @@ import { FormsModule } from '@angular/forms';
 export class AddProductComponent {
   onAdd = output<Product>();
 
-  categories = ['Молочні продукти', 'Овочі', 'Напої', 'З терміном придатності', 'Консерви', 'Органічні продукти'];
+  private categoryService = inject(CategoryService);
+
+  get categories(): string[] {
+      return this.categoryService.getCategoryNames();
+  }
   selectedCategory = 'Молочні продукти';
   form: FormGroup = ProductFormFactory.createForm(this.selectedCategory);
 
